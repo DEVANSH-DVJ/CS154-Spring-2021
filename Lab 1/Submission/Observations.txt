@@ -1,0 +1,7 @@
+Difference between the "procedural" and "object oriented" paradigms as observed from sample.c and sample.cpp
+
+1. sample.c ("procedural") is divided into functions, whereas
+   sample.cpp ("object oriented") is divided into classes (which has member functions).
+
+2. There is no access specifier in procedural programming (sample.c),
+   Object oriented programming have access specifiers like private, public, protected etc. (sample.cpp)
