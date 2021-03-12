@@ -1,0 +1,29 @@
+Write the following two programs in plain C and using *class* construct in C++.
+
+sample programs in each of the two language are attached. use them as starting point.
+
+We will start comparing and differentiating bewteeen
+the "procedural" and "object oriented" paradigms through this lab.
+Write your observations as to what you feel about your two designs in a file called
+Observations.txt
+
+what to submit: (5 files)
+program1.c  program1.cpp
+program2.c  program2.cpp
+Observations.txt
+
+program1:  A program that counts the probability of
+every possibility of throwing a 6 faced dice, N times.[use random number generator]
+Take N as command line parameter to your program
+
+program2: A program that reads a text file, whose name is supplied as command line parameter,
+and it prints the frequency of counts of every single letter/character appearing in that file.
+
+
+In C version, you are not allowed to use any object oriented feature. Use only procedures and parameters.
+In C++ version, you must use class construct and member functions.
+
+See sample.c and sample.cpp for sample code in both languages.
+
+submit whatever you can do till 5pm in moodle submission link. 
+
