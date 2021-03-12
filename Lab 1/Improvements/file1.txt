@@ -1,0 +1,3 @@
+Hello world 123
+Lab1 Assignment 
+Object Oriented and procedural programming

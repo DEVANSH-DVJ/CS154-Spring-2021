@@ -1,0 +1,15 @@
+Lab 1 Submission - Devansh Jain, 190100044
+
+Core logic and working remains same but there have been some improvements:
+1. In the previous submission, I had used C++ code in *.c files even though I had used procedural programming.
+    I replaced it with proper C code and tested on the C compiler (gcc) instead of C++ compiler (g++)
+2. I added comments at the start of every file, function, struct, class
+3. Added the usage help output when number of command line arguments isn't correct.
+4. Removed previously included but unnecessary headers
+5. Renamed functions with long names to short, appropriate and understandable names.
+
+To compile (on Linux):
+gcc program1.c -o program1c;
+g++ program1.cpp -o program1cpp;
+gcc program2.c -o program2c;
+g++ program2.cpp -o program2cpp;
