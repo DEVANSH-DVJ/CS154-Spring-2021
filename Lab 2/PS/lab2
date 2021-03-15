@@ -1,0 +1,138 @@
+A Coordinated System of Lifts in a Building
+
+
+Design object oriented abstraction for a lift given the following functionality,
+and implement it:
+
+ 0+6 floors in the building, numbered 0,1,2,3,4,5,6
+
+ buttons inside the lift: 0 to 6 
+
+ buttons outside the lift on each floor: UP and DOWN
+
+	if the UP button is pressed, the dweller wants to go to
+		an upper floor
+	if DOWN button is pressed, the dweller wants to go to
+		a lower floor
+ 	Top floor does not have the UP button, and 0th floor
+  	does not have the DOWN button
+
+Design a class called Lift with approriate interface for the lift's
+ internal buttons
+
+Design a class called Floor with appropriate interfafce for
+ the buttons on the floor
+
+Implement interaction between the two.
+
+First attempt a single lift arrangement
+
+Then attempt a double lift arrangement 
+
+Goog properties to have:
+
+	When a lift is passing through, it is
+ 	better to let that lift halt if needed at an intermediate
+		floor
+
+	When using two lifts, call upon the nearest lift if no
+	lift is passing through
+
+	When the lift is moving, people may come aboard at an
+		intermediate floor, and their destinations may
+		be different.
+
+  if there is no service needed, lift does not stop at that floor
+
+
+
+	after reaching a floor and nowhere else to go, the
+	lift stays at that floor until it get called upon again
+
+
+
+  additional feature: capacity limit (weight)-- lift does not move
+     and it opens if limit is exceeded-- closes when the weight is within
+     limits
+
+
+In main (), show the working of your classes by creating objects and
+invoking a series of member functions.
+
+Logic is in the classes
+
+main() shows a particular test sequence
+
+*********Flexibility is being given!********************
+
+
+
+what to submit: Observation.txt  (Self assessment- thinking! design..
+
+choice of abstractions, features..) and singlelift.cpp twolifts.cpp (code that you wrote)
+
+
+
+***************
+
+
+
+use cout to print lift's operations: open, close, move
+
+
+
+***************
+
+one suggestion for a starting point:
+
+
+
+avoid functions, use member functions, think in terms
+
+of abstractions..
+
+
+
+class Lift {    };
+
+class Floor {      };
+
+
+
+main () {
+
+ Lift lift1, lift2;  // can use array as well
+
+ Floor floor1, floor2, ....; // can use array as well
+
+
+
+  lift1.initialize(0);
+
+  lift2.initialize(6);
+
+
+
+  ... floor2.up(); // from floor 2 someone wants to go to floor 4
+
+
+
+  // how do you press the floor button in the lift after it arrives!.....
+
+
+
+   floor3.up();
+
+ //....
+
+...   floor1.up();
+
+
+
+   floor6.down();
+
+   floor2.down();
+
+
+
+}
