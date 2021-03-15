@@ -1,5 +1,6 @@
-Using Object-oriented Paradigm.
+Lab 2 Submission - Devansh Jain, 190100044
 
+Using Object-oriented Paradigm.
 There are two classes - Lift and Floor.
 
 Lift has a list of all floors waiting for up and down along with a list of destinations in form of bool arrays.
