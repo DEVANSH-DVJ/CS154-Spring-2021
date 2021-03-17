@@ -28,3 +28,4 @@ Code analysis:
 3. Commented all classes and functions
 4. Main code has expected output written after every state change (function call).
 5. Indentation and linting checked using clang-format-6
+6. Boundary cases checked
