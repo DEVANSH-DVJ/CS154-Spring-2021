@@ -1,0 +1,30 @@
+Lab 2 Submission - Devansh Jain, 190100044
+
+Using Object-oriented Paradigm. There are two classes - Lift and Floor.
+Used forward declaration as both classes need to call each other.
+Could have had a master class over both of them but decided against it as the dependency of lifts on floors was minimal.
+
+Lift has a list of all floors waiting for up and down along with a list of destinations in form of bool arrays.
+When it reaches a floor, it checks if it has to open or not.
+If it opens, then it calls the floor's function lift_opens() which returns destinations of passengers getting in.
+It also has a private variable dir which shows the direction of motion. {-1: DOWN, 0: IDLE, 1: UP}
+
+Floor has waiting list for destinations of passengers wanting to go up and down.
+Whenever up/down button is pressed, it signals the lift closest to it to register it in the wait list.
+When lift_opens() is called, it returns list of destinations of passengers getting in.
+
+Modifications and features which can be added:
+1. The additional feature for limit on number of passengers can be easily met
+    i) with the lift keeping a tab of passengers, and
+    ii) lift_opens() taking an additional parameter which contains maximum new entrants.
+    This can be easily be made possible using pop_front() function of list<uint>
+2. Multi-lift system is also easily implementable by calculating the nearest lift considering the direction it is moving,
+    and then assigning the corresponding lift the floor.
+    It has been done for two lifts in Floor::nearest_lift() in twolifts.cpp, it can then be expanded to multi-lifts.
+
+Code analysis:
+1. File has a header comment
+2. Headers are sorted
+3. Commented all classes and functions
+4. Main code has expected output written after every state change (function call).
+5. Indentation and linting checked using clang-format-6
