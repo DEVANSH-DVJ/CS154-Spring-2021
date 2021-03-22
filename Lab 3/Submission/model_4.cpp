@@ -1,8 +1,10 @@
-
-// code by Prof. R.K.Joshi, CSE, IIT Bombay
-// part of CS 152/154 2021
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 3 - Stack Implementation (Model 4)
+ */
 
 #include <iostream>
+
 using namespace std;
 
 // fourth solution: more secure.. globals are gone, they are wrapped into
@@ -15,9 +17,9 @@ using namespace std;
 // first solution does not permit that..
 
 class Stack {
-  int S[100];   // S[45] is 46th element!
-  int top = 0;  // current position in stack which is empty, position indicator
-  // int card = 0; // cardinality, no. of elements in the stack
+private:
+  int S[100];  // S[45] is 46th element!
+  int top = 0; // current position in stack which is empty, position indicator
 
 public:
   void push(int elem); // add an element on top of stack
@@ -30,9 +32,12 @@ void Stack::push(int elem) {
     cout << "Stack Overflow" << endl;
     return;
   }
+
   S[top] = elem;
-  cout << elem << " added to the top of the stack" << endl;
   top++;
+
+  cout << elem << " added to the top of the stack" << endl;
+
   return;
 }
 
@@ -41,8 +46,11 @@ int Stack::pop() {
     cout << "Stack Underflow" << endl;
     return -1;
   }
+
   top--;
+
   cout << S[top] << " removed from the top of the stack" << endl;
+
   return S[top];
 }
 
@@ -51,23 +59,24 @@ int Stack::card() { return top; }
 //------------- section 3 ---- user of the abstraction ------
 
 int main() { // is a user of the object, through its abstraction...
-
   Stack s1, s2;
   int e;
 
   s1.push(10);
   s1.push(12);
-  s1.push(14);
+  s2.push(14);
   e = s1.pop();
   cout << e << endl;
   e = s1.pop();
   cout << e << endl;
-
   s2.push(10);
   s2.push(12);
-  s2.push(14);
+  s1.push(14);
   e = s2.pop();
   cout << e << endl;
-  e = s2.pop();
+  e = s1.pop();
   cout << e << endl;
+  e = s1.pop();
+
+  return 0;
 }

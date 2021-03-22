@@ -1,8 +1,10 @@
-
-// code by Prof. R.K.Joshi, CSE, IIT Bombay
-// part of CS 152/154 2021
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 3 - Stack Implementation (Model 3)
+ */
 
 #include <iostream>
+
 using namespace std;
 
 // third solution: structure the body elements... neater and safer,,
@@ -26,10 +28,13 @@ void push(int elem, struct stack *s) {
     cout << "Stack Overflow" << endl;
     return;
   }
+
   s->S[s->top] = elem;
-  cout << elem << " added to the top of the stack" << endl;
   s->top++;
   s->card++;
+
+  cout << elem << " added to the top of the stack" << endl;
+
   return;
 };
 
@@ -38,9 +43,12 @@ int pop(struct stack *s) {
     cout << "Stack Underflow" << endl;
     return -1;
   }
+
   s->top--;
   s->card--;
+
   cout << s->S[s->top] << " removed from the top of the stack" << endl;
+
   return s->S[s->top];
 }
 
@@ -49,23 +57,24 @@ int card(struct stack *s) { return s->card; }
 //------------- section 3 ---- user of the abstraction ------
 
 int main() { // is a user of the object, through its abstraction...
-
   struct stack s1, s2;
   int e;
 
   push(10, &s1);
   push(12, &s1);
+  push(14, &s2);
+  e = pop(&s1);
+  cout << e << endl;
+  e = pop(&s1);
+  cout << e << endl;
+  push(10, &s2);
+  push(12, &s2);
   push(14, &s1);
-  e = pop(&s1);
+  e = pop(&s2);
   cout << e << endl;
   e = pop(&s1);
   cout << e << endl;
+  e = pop(&s1);
 
-  push(10, &s1);
-  push(12, &s1);
-  push(14, &s1);
-  e = pop(&s1);
-  cout << e << endl;
-  e = pop(&s1);
-  cout << e << endl;
+  return 0;
 }

@@ -1,8 +1,11 @@
 
-// code by Prof. R.K.Joshi, CSE, IIT Bombay
-// part of CS 152/154 2021
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 3 - Stack Implementation (Model 2)
+ */
 
 #include <iostream>
+
 using namespace std;
 
 // second solution: allows two instaces of the abstraction in main
@@ -33,10 +36,17 @@ void push(int elem, int *S, int *top, int *card) {
     cout << "Stack Overflow" << endl;
     return;
   }
+
   S[*top] = elem;
-  cout << elem << " added to the top of the stack" << endl;
   ++*top;
   ++*card;
+
+  cout << elem;
+  if (S == S1)
+    cout << " added to the top of the stack 1" << endl;
+  else
+    cout << " added to the top of the stack 2" << endl;
+
   return;
 };
 
@@ -45,9 +55,16 @@ int pop(int *S, int *top, int *card) {
     cout << "Stack Underflow" << endl;
     return -1;
   }
+
   --*top;
   --*card;
-  cout << S[*top] << " removed from the top of the stack" << endl;
+
+  cout << S[*top];
+  if (S == S1)
+    cout << " removed from the top of stack 1" << endl;
+  else
+    cout << " removed from the top of stack 2" << endl;
+
   return S[*top];
 }
 
@@ -62,6 +79,7 @@ int card(int *S) {
 
 int main() { // is a user of the object, through its abstraction...
   int e;
+
   push(10, S1, &top1, &card1);
   push(12, S1, &top1, &card1);
   push(14, S2, &top2, &card2);
@@ -69,7 +87,6 @@ int main() { // is a user of the object, through its abstraction...
   cout << e << endl;
   e = pop(S1, &top1, &card1);
   cout << e << endl;
-
   push(10, S2, &top2, &card2);
   push(12, S2, &top2, &card2);
   push(14, S1, &top1, &card1);
@@ -77,4 +94,7 @@ int main() { // is a user of the object, through its abstraction...
   cout << e << endl;
   e = pop(S1, &top1, &card1);
   cout << e << endl;
+  e = pop(S1, &top1, &card1);
+
+  return 0;
 }
