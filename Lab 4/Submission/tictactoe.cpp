@@ -81,11 +81,14 @@ TicTacToe::TicTacToe() {
   count = 0;
   player1 = (char *)"X";
   player2 = (char *)"O";
+
+  init_window1();
+  init_window2();
 }
 
 void TicTacToe::init_window1() {
   // Init Window 1
-  window1 = new Fl_Window(500, 250, 310, 310, "Select An Option");
+  window1 = new Fl_Window(500, 250, 310, 310, "New Game");
 
   // Textbox
   Fl_Box *textbox =
@@ -213,9 +216,6 @@ void TicTacToe::close(Fl_Widget *w, void *v) { exit(0); }
 
 int main(int argc, char *argv[]) {
   TicTacToe B;
-
-  B.init_window1(); // Initialize Window 1
-  B.init_window2(); // Initialize Window 2
 
   return Fl::run(); // Game flows till exited
 }
