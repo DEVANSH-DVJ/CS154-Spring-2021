@@ -15,13 +15,17 @@
  */
 class TicTacToe {
 private:
-  Fl_Window *window1;    // New Game window
-  Fl_Window *window2;    // Play Game window
-  char *playing;         // Label of current player
-  int count;             // Stores count of boxes filled
-  Fl_Button *bArr[3][3]; // Array of Buttons
-  char *player1;         // Label of player1
-  char *player2;         // Label of player2
+  Fl_Window *window1;                   // New Game window
+  Fl_Window *window2;                   // Play Game window
+  Fl_Box *textbox;                      // TextBox for New Game Window
+  Fl_Button *choice1, *choice2, *close; // Buttons for New Game Window
+  Fl_Button *bArr[3][3];                // Array of Buttons for Play Game Window
+
+  int count; // Stores count of boxes filled
+
+  char *playing; // Label of current player
+  char *player1; // Label of player1
+  char *player2; // Label of player2
 
 public:
   /**
@@ -29,6 +33,12 @@ public:
    * @brief constructor of class TicTacToe
    */
   TicTacToe();
+
+  /**
+   * @fn ~TicTacToe
+   * @brief destructor of class TicTacToe
+   */
+  ~TicTacToe();
 
   /**
    * @fn init_window1
@@ -50,40 +60,56 @@ public:
   bool game_won();
 
   /**
-   * @fn button_callback
+   * @fn grid_callback
    * @param[in] w pointer to the widget object which is clicked
    * @param[in] v pointer to the TicTacToe object
    * @brief called whenever a button in the 3x3 grid is clicked
    */
-  static void button_callback(Fl_Widget *w, void *v);
+  static void grid_callback(Fl_Widget *w, void *v);
 
   /**
-   * @fn nextpage
+   * @fn nextpage_callback
    * @param[in] w pointer to the widget object which is clicked
    * @param[in] v pointer to the TicTacToe object
    * @brief called whenever a button is clicked (choice of player)
    */
-  static void nextpage(Fl_Widget *w, void *v);
+  static void nextpage_callback(Fl_Widget *w, void *v);
 
   /**
-   * @fn close
+   * @fn close_callback
    * @param[in] w pointer to the widget object which is clicked
    * @param[in] v pointer to the TicTacToe object
    * @brief called whenever a button is clicked (exit)
    */
-  static void close(Fl_Widget *w, void *v);
+  static void close_callback(Fl_Widget *w, void *v);
 };
 
 TicTacToe::TicTacToe() {
-  Fl_Window *window1 = nullptr;
-  Fl_Window *window2 = nullptr;
-  char *playing = (char *)"";
+  window1 = nullptr;
+  window2 = nullptr;
+  textbox = nullptr;
+  choice1 = nullptr;
+  choice2 = nullptr;
+  close = nullptr;
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3; j++)
+      bArr[i][j] = nullptr;
+
   count = 0;
+
+  playing = (char *)"";
   player1 = (char *)"X";
   player2 = (char *)"O";
 
   init_window1();
   init_window2();
+}
+
+TicTacToe::~TicTacToe() {
+  delete window1, window2, textbox, choice1, choice2, close;
+  for (int i = 0; i < 3; i++)
+    for (int j = 0; j < 3; j++)
+      delete bArr[i][j];
 }
 
 void TicTacToe::init_window1() {
@@ -99,19 +125,19 @@ void TicTacToe::init_window1() {
   Fl_Button *choice1 = new Fl_Button(100, 130, 100, 30, "X");
   choice1->labelsize(20);
   choice1->labelfont(FL_ITALIC);
-  choice1->callback(&TicTacToe::nextpage, this);
+  choice1->callback(&TicTacToe::nextpage_callback, this);
 
   // "O" button
   Fl_Button *choice2 = new Fl_Button(100, 170, 100, 30, "O");
   choice2->labelsize(20);
   choice2->labelfont(FL_ITALIC);
-  choice2->callback(&TicTacToe::nextpage, this);
+  choice2->callback(&TicTacToe::nextpage_callback, this);
 
   // Exit button
   Fl_Button *exit = new Fl_Button(70, 210, 160, 60, "Exit");
   exit->labelsize(20);
   exit->labelfont(FL_ITALIC + FL_HELVETICA);
-  exit->callback(&TicTacToe::close, this);
+  exit->callback(&TicTacToe::close_callback, this);
 
   window1->end();
   window1->show();
@@ -129,7 +155,7 @@ void TicTacToe::init_window2() {
   for (int i = 0; i < 3; i++) {
     for (int j = 0; j < 3; j++) {
       bArr[i][j] = new Fl_Button(X, Y, W, H, 0);
-      bArr[i][j]->callback(button_callback, this);
+      bArr[i][j]->callback(grid_callback, this);
       X += 90;
     }
     X = 20;
@@ -161,7 +187,7 @@ bool TicTacToe::game_won() {
               (bArr[2][0]->label() == ip));
 }
 
-void TicTacToe::button_callback(Fl_Widget *w, void *v) {
+void TicTacToe::grid_callback(Fl_Widget *w, void *v) {
   // Get the self object
   TicTacToe *self = (TicTacToe *)v;
 
@@ -200,7 +226,7 @@ void TicTacToe::button_callback(Fl_Widget *w, void *v) {
   return;
 }
 
-void TicTacToe::nextpage(Fl_Widget *w, void *v) {
+void TicTacToe::nextpage_callback(Fl_Widget *w, void *v) {
   // Get the self object
   TicTacToe *self = (TicTacToe *)v;
 
@@ -212,10 +238,10 @@ void TicTacToe::nextpage(Fl_Widget *w, void *v) {
   self->window2->show();
 }
 
-void TicTacToe::close(Fl_Widget *w, void *v) { exit(0); }
+void TicTacToe::close_callback(Fl_Widget *w, void *v) { exit(0); }
 
 int main(int argc, char *argv[]) {
-  TicTacToe B;
+  TicTacToe B; // Initialize the game
 
   return Fl::run(); // Game flows till exited
 }
