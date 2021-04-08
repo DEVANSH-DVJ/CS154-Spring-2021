@@ -22,6 +22,7 @@ MyButton ::MyButton(int x, int y, int w, int h, const char *l)
     : Fl_Button(x, y, w, h, l) {
   count = 0;
 }
+
 int MyButton ::handle(int e) {
   if (e == FL_PUSH) {
     count++;
