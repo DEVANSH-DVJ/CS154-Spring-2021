@@ -1,0 +1,172 @@
+prog1.cpp
+Compilation error :
+  "cannot declare variable ‘a’ to be of abstract type ‘A’"
+Explanation :
+  A has a pure virtual function and thus is an abstract class, it can not be instantiated as "A a;".
+
+prog2.cpp
+Output (Runtime Error):
+  Segmentation fault (core dumped)
+Explanation :
+  "ap" is a pointer which isn't assigned any object, so calling a function is invalid access, so it throws Seg fault.
+
+prog3.cpp
+Output :
+  B::f
+  B:g
+  B::f
+  B:g
+Explanation :
+  "ap" is a pointer of type Class A pointing to object of Class B.
+  "b" is object of Class B.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+
+prog4.cpp
+Output :
+  A::f
+  A::g
+  A::f
+  A::g
+  B::f
+  B:g
+Explanation :
+  "ap" is a pointer of type Class A pointing to object of Class A.
+  "a" is object of Class A.
+  "b" is object of Class B.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "a.f()" & "a.g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+
+prog5.cpp
+Output :
+  A::f
+  A::g
+  A::f
+  A::g
+  B::f
+  B:g
+  -----------------
+  B::f
+  B:g
+  A::f
+  A::g
+  B::f
+  B:g
+Explanation :
+  First six lines are same as prog4.cpp.
+  After "ap = bp; a = b;",
+  "ap" is a pointer of type Class A pointing to object of Class B.
+  "a" is object of Class A (assignment operator doesn't change type).
+  "b" is object of Class B.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  "a.f()" & "a.g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+
+prog6.cpp
+Output :
+  A::f
+  A::g
+  B::f
+  B::g
+  C::f
+  A::g
+  B::f
+  B::g
+  C::f
+  A::g
+Explanation :
+  "ap" is a pointer of type Class A pointing to object of Class A.
+  "bp" is a pointer of type Class B pointing to object of Class B.
+  "cp" is a pointer of type Class C pointing to object of Class C.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "bp->f()", "bp->g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  "cp->f()", "cp->g()" are valid as Class C has declaration of "f()" & "g()". As Class C has definition of "f()" & "g()", they are called.
+  After "ap = bp",
+  "ap" is a pointer of type Class A pointing to object of Class B.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  After "ap = cp",
+  "ap" is a pointer of type Class A pointing to object of Class C.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()" & "g()", they are called.
+
+prog7.cpp
+Output (Runtime Error):
+  A::f
+  A::g
+  A::g
+  C::f
+  A::g
+  C::k
+  C::f
+  C::f
+  A::g
+  Segmentation fault (core dumped)
+Explanation :
+  "ap" is a pointer of type Class A pointing to object of Class A.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "ap->f()" calls "g()" which is equivalent to "this->g()" which is equivalent to "ap->g()". (First two lines of output)
+  "cp" is a pointer of type Class C pointing to object of Class C.
+  "cp->f()", "cp->g()", "cp->k()" are valid as Class C has declaration of "f()" & "k()" and parent Class A has declaration of "g()". As Class C has definition of "f()" & "k()", they are called. As Class C doesn't have definition of "g()" but parent Class A has, it is called.
+  "cp->k()" calls "f()" which is equivalent to "this->f()" which is equivalent to "cp->f()". (Sixth and Seventh lines of output)
+  After "ap = cp;",
+  "ap" is a pointer of type Class A pointing to object of Class C.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class A has, it is called.
+  "bp" is an unassigned pointer and thus can't be accessed to be copied to "ap", so "ap = bp;" is invalid access, so it throws Seg fault.
+
+prog8.cpp
+Output :
+  C::f
+  B::g
+Explanation :
+  "ap" is a pointer of type Class A pointing to object of Class C.
+  "bp" is a pointer of type Class B pointing to object of Class C.
+  "cp" is a pointer of type Class C pointing to object of Class C.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
+
+prog9.cpp
+Output :
+  10C::f
+  20B::g
+  10C::f
+  10C::k
+  10C::f
+  100B::f
+  100B::g
+  10C::f
+  20B::g
+  200A::f
+  200A::g
+  200A::g
+  10C::f
+  20B::g
+Explanation :
+  "cp" is a pointer of type Class C pointing to object of Class C, with C::z=10, B::y=20, A::x=30.
+  "cp->f()", "cp->g()", "cp->k()" are valid as Class C has declaration of "f()" & "k()" and parent Class A has declaration of "g()". As Class C has definition of "f()" & "k()", they are called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
+  "cp->k()" calls "f()" which is equivalent to "this->f()" which is equivalent to "cp->f()". (Third to Fifth lines of output)
+  "bp" is a pointer of type Class B pointing to object of Class B, with B::y=100, A::x=110.
+  "bp->f()", "bp->g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  "bp" is a pointer of type Class B pointing to object of Class C, with C::z=10, B::y=20, A::x=30.
+  "bp->f()", "bp->g()" are valid as Class B has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
+  "ap" is a pointer of type Class A pointing to object of Class A, with A::x=200.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "ap->f()" calls "g()" which is equivalent to "this->g()" which is equivalent to "ap->g()". (Tenth and Eleventh lines of output)
+  "ap" is a pointer of type Class A pointing to object of Class C, with C::z=10, B::y=20, A::x=30.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
+
+prog10.cpp
+Output :
+  100A::f
+  100A::g
+  100A::g
+  200B::f
+  200B::g
+  210A::f
+  210A::g
+  210A::g
+Explanation :
+  "a" is object of Class A, with A::x=100.
+  "b" is object of Class B, with B::y=200, A::x=210.
+  "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
+  "ap->f()" calls "g()" which is equivalent to "this->g()" which is equivalent to "ap->g()". (First two lines of output)
+  "bp->f()", "bp->g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
+  "a" is object of Class A, with A::x=210 (assignment operator doesn't change type, but copies values by scope).
