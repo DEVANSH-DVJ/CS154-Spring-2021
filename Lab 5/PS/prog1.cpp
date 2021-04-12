@@ -16,3 +16,4 @@ int main (int argc, char *argv[]) {
  A a;   // error!
  B b;
 }
+

@@ -24,3 +24,4 @@ int main (int argc, char *argv[]) {
       //  b->f(); // b is not a pointer, use . operator (dot operator) // syntax error
        // b->g(); // --"---
 }
+
