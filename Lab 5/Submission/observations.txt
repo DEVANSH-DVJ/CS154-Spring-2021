@@ -1,36 +1,36 @@
 prog1.cpp
-Compilation error :
-  "cannot declare variable ‘a’ to be of abstract type ‘A’"
-Explanation :
+Compilation Error:
+  "error: cannot declare variable ‘a’ to be of abstract type ‘A’"
+Explanation:
   A has a pure virtual function and thus is an abstract class, it can not be instantiated as "A a;".
 
 prog2.cpp
 Output (Runtime Error):
   Segmentation fault (core dumped)
-Explanation :
+Explanation:
   "ap" is a pointer which isn't assigned any object, so calling a function is invalid access, so it throws Seg fault.
 
 prog3.cpp
-Output :
+Output:
   B::f
   B:g
   B::f
   B:g
-Explanation :
+Explanation:
   "ap" is a pointer of type Class A pointing to object of Class B.
   "b" is object of Class B.
   "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
   "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
 
 prog4.cpp
-Output :
+Output:
   A::f
   A::g
   A::f
   A::g
   B::f
   B:g
-Explanation :
+Explanation:
   "ap" is a pointer of type Class A pointing to object of Class A.
   "a" is object of Class A.
   "b" is object of Class B.
@@ -39,7 +39,7 @@ Explanation :
   "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
 
 prog5.cpp
-Output :
+Output:
   A::f
   A::g
   A::f
@@ -53,7 +53,7 @@ Output :
   A::g
   B::f
   B:g
-Explanation :
+Explanation:
   First six lines are same as prog4.cpp.
   After "ap = bp; a = b;",
   "ap" is a pointer of type Class A pointing to object of Class B.
@@ -64,7 +64,7 @@ Explanation :
   "b.f()" & "b.g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
 
 prog6.cpp
-Output :
+Output:
   A::f
   A::g
   B::f
@@ -75,7 +75,7 @@ Output :
   B::g
   C::f
   A::g
-Explanation :
+Explanation:
   "ap" is a pointer of type Class A pointing to object of Class A.
   "bp" is a pointer of type Class B pointing to object of Class B.
   "cp" is a pointer of type Class C pointing to object of Class C.
@@ -101,7 +101,7 @@ Output (Runtime Error):
   C::f
   A::g
   Segmentation fault (core dumped)
-Explanation :
+Explanation:
   "ap" is a pointer of type Class A pointing to object of Class A.
   "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
   "ap->f()" calls "g()" which is equivalent to "this->g()" which is equivalent to "ap->g()". (First two lines of output)
@@ -114,17 +114,17 @@ Explanation :
   "bp" is an unassigned pointer and thus can't be accessed to be copied to "ap", so "ap = bp;" is invalid access, so it throws Seg fault.
 
 prog8.cpp
-Output :
+Output:
   C::f
   B::g
-Explanation :
+Explanation:
   "ap" is a pointer of type Class A pointing to object of Class C.
   "bp" is a pointer of type Class B pointing to object of Class C.
   "cp" is a pointer of type Class C pointing to object of Class C.
   "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
 
 prog9.cpp
-Output :
+Output:
   10C::f
   20B::g
   10C::f
@@ -139,7 +139,7 @@ Output :
   200A::g
   10C::f
   20B::g
-Explanation :
+Explanation:
   "cp" is a pointer of type Class C pointing to object of Class C, with C::z=10, B::y=20, A::x=30.
   "cp->f()", "cp->g()", "cp->k()" are valid as Class C has declaration of "f()" & "k()" and parent Class A has declaration of "g()". As Class C has definition of "f()" & "k()", they are called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
   "cp->k()" calls "f()" which is equivalent to "this->f()" which is equivalent to "cp->f()". (Third to Fifth lines of output)
@@ -154,7 +154,7 @@ Explanation :
   "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class C has definition of "f()", it is called. As Class C doesn't have definition of "g()" but parent Class B has, it is called.
 
 prog10.cpp
-Output :
+Output:
   100A::f
   100A::g
   100A::g
@@ -163,10 +163,59 @@ Output :
   210A::f
   210A::g
   210A::g
-Explanation :
+Explanation:
   "a" is object of Class A, with A::x=100.
   "b" is object of Class B, with B::y=200, A::x=210.
   "ap->f()", "ap->g()" are valid as Class A has declaration of "f()" & "g()". As Class A has definition of "f()" & "g()", they are called.
   "ap->f()" calls "g()" which is equivalent to "this->g()" which is equivalent to "ap->g()". (First two lines of output)
   "bp->f()", "bp->g()" are valid as Class B has declaration of "f()" & "g()". As Class B has definition of "f()" & "g()", they are called.
   "a" is object of Class A, with A::x=210 (assignment operator doesn't change type, but copies values by scope).
+
+my1.cpp
+Compilation Error:
+  my1.cpp:31:30: error: reference to ‘x’ is ambiguous
+   virtual void k() { cout << x << z << "C::k\n"; }
+  my1.cpp:38:7: error: request for member ‘g’ is ambiguous
+    cp->g();
+Explanation:
+  Class C inherits x from both parent Classes A and B. We need to specify the variable belongs to which class (scope).
+  "cp" is a pointer of type Class C pointing to object of Class C, C::z=10, B::x=20, A::110.
+  Class C inherits declaration of "g()" from two parent Classes A and B. We need to specify the call belongs to which class (scope).
+
+my2.cpp (Fixing my1.cpp)
+Output:
+  110:20:10C::f
+  110A::f
+  110A::g
+  20B::g
+  20B::h
+  110:20:10C::k
+  20B::g
+  20B::h
+  110:20:10C::f
+  110A::g
+  ----------------------
+  103:13:3C::f
+  103A::g
+  13B::g
+  13B::h
+  103:13:3C::k
+  2B::g
+  2B::h
+  1A::f
+  1A::g
+  13B::g
+  13B::h
+  103A::f
+  103A::g
+Explanation:
+  "cp" is a pointer of type Class C pointing to object of Class C, with C::z=10, B::x=20, A::x=110.
+  "bp" is a pointer of type Class B pointing to object of Class C, with C::z=10, B::x=20, A::x=110.
+  "ap" is a pointer of type Class A pointing to object of Class C, with C::z=10, B::x=20, A::x=110.
+  To access A's over-ridden "f()", we use A::f().
+  "a" is object of Class A, with A::x=1.
+  "b" is object of Class B, with B::x=2.
+  "c" is object of Class C, with C::y=3, B::x=13, A::x=103.
+  After "b = c; a = c;"
+  "a" is object of Class A, with A::x=103 (assignment operator doesn't change type, but copies values by scope).
+  "b" is object of Class B, with B::x=13 (assignment operator doesn't change type, but copies values by scope).
