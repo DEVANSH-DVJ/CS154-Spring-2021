@@ -1,0 +1,10 @@
+Lab 6 Game: understanding inheritance hierarchies
+Read and run the code that we discussed in class today.
+Use it and change it into an interactive game of your own feel free to use your colors, shapes, logic, events (keyboard, mouse)
+
+The logic of the game will be inside handle function!
+
+submit:
+1) cpp code
+2) one game board screenshot in the midst of play
+3) observations.txt --- what is your idea, and how used inheritance
