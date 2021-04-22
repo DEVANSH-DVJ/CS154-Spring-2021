@@ -123,19 +123,19 @@ void TicTacToe::init_window1() {
   textbox->labelsize(20);
 
   // "X" button
-  Fl_Button *choice1 = new Fl_Button(100, 130, 100, 30, "X");
+  choice1 = new Fl_Button(100, 130, 100, 30, "X");
   choice1->labelsize(20);
   choice1->labelfont(FL_ITALIC);
   choice1->callback(&TicTacToe::nextpage_callback, this);
 
   // "O" button
-  Fl_Button *choice2 = new Fl_Button(100, 170, 100, 30, "O");
+  choice2 = new Fl_Button(100, 170, 100, 30, "O");
   choice2->labelsize(20);
   choice2->labelfont(FL_ITALIC);
   choice2->callback(&TicTacToe::nextpage_callback, this);
 
   // Exit button
-  Fl_Button *close = new Fl_Button(70, 210, 160, 60, "Exit");
+  close = new Fl_Button(70, 210, 160, 60, "Exit");
   close->labelsize(20);
   close->labelfont(FL_ITALIC + FL_HELVETICA);
   close->callback(&TicTacToe::close_callback, this);
