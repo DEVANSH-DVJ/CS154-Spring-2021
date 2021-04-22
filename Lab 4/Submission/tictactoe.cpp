@@ -106,7 +106,7 @@ TicTacToe::TicTacToe() {
 }
 
 TicTacToe::~TicTacToe() {
-  std::cout << "Destructor\n" << std::endl;
+  std::cout << "Destructor" << std::endl;
   delete window1, window2, textbox, choice1, choice2, close;
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3; j++)
@@ -135,10 +135,10 @@ void TicTacToe::init_window1() {
   choice2->callback(&TicTacToe::nextpage_callback, this);
 
   // Exit button
-  Fl_Button *exit = new Fl_Button(70, 210, 160, 60, "Exit");
-  exit->labelsize(20);
-  exit->labelfont(FL_ITALIC + FL_HELVETICA);
-  exit->callback(&TicTacToe::close_callback, this);
+  Fl_Button *close = new Fl_Button(70, 210, 160, 60, "Exit");
+  close->labelsize(20);
+  close->labelfont(FL_ITALIC + FL_HELVETICA);
+  close->callback(&TicTacToe::close_callback, this);
 
   window1->end();
   window1->show();
