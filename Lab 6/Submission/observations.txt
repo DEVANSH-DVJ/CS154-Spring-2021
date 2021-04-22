@@ -1,0 +1,20 @@
+Lab 6 Submission - Devansh Jain, 190100044
+
+Compiling and play: g++ chase.cpp -lfltk -o chase; ./chase;
+
+Major FLTK event handler I used was callback for buttons and handle for Player (inherited from Shape which was inherited from Fl_Widget).
+
+Class Shape is inherited from Fl_widget and has two sub-classes - Player which represent the players and Boundary which represents the arena boundary.
+Player has a handler which takes care of keyboard events using FL_SHORTCUT (this is useful when the widget is not focused).
+The overlap issue was resolved using Fl::redraw() function in the resize() function.
+
+The entire game is inside the class Chase.
+It contains two windows - New Game window and Play Game window.
+New Game window has 2 buttons - one for playing and one for exiting.
+Play Game has an arena with two players - a chaser and an escapee.
+Chaser moves around with WASD keys while Escapee uses arrow keys.\
+It has two static functions which are callback functions for the buttons -
+  nextpage_callback() for play button, and
+  close_callback() for exit button.
+
+The code is commented properly and the working of each function is understandable.
