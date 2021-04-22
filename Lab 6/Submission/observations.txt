@@ -12,7 +12,8 @@ The entire game is inside the class Chase.
 It contains two windows - New Game window and Play Game window.
 New Game window has 2 buttons - one for playing and one for exiting.
 Play Game has an arena with two players - a chaser and an escapee.
-Chaser moves around with WASD keys while Escapee uses arrow keys.\
+Chaser (red) moves around with WASD keys while Escapee (blue) uses arrow keys.
+Chaser has to catch the escapee in less than 1000 steps to win, escapee has to prevent this to happen to win.
 It has two static functions which are callback functions for the buttons -
   nextpage_callback() for play button, and
   close_callback() for exit button.
