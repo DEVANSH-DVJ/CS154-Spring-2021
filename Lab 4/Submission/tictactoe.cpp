@@ -8,7 +8,7 @@
 #include <FL/Fl_Window.H> // Fl_Window
 #include <FL/fl_ask.H>    // fl_message
 #include <Fl/Fl_Box.H>    // Fl_Box
-
+#include <iostream>
 /**
  * @class TicTacToe
  * @brief contains the logic for playing the game
@@ -106,6 +106,7 @@ TicTacToe::TicTacToe() {
 }
 
 TicTacToe::~TicTacToe() {
+  std::cout << "Destructor\n" << std::endl;
   delete window1, window2, textbox, choice1, choice2, close;
   for (int i = 0; i < 3; i++)
     for (int j = 0; j < 3; j++)
@@ -238,7 +239,13 @@ void TicTacToe::nextpage_callback(Fl_Widget *w, void *v) {
   self->window2->show();
 }
 
-void TicTacToe::close_callback(Fl_Widget *w, void *v) { exit(0); }
+void TicTacToe::close_callback(Fl_Widget *w, void *v) {
+  // Get the self object
+  TicTacToe *self = (TicTacToe *)v;
+
+  self->~TicTacToe();
+  exit(0);
+}
 
 int main(int argc, char *argv[]) {
   TicTacToe B; // Initialize the game
