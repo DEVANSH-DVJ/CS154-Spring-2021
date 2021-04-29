@@ -1,0 +1,16 @@
+Spaghetti code is present in 2pinGate_spaghetti.cpp.
+Structured code is present in 2pinGate_structured.cpp.
+
+Creating the spaghetti code:
+I took my code from Lab 3 for 2 Input Logic Gates.
+I changed the main function and added goto statements.
+There is a variable test_count which keeps count of the number of tests completed.
+First we enter the "test" block.
+For each test, there is a goto statement to "check" block which outputs to STDOUT, increments the counter and returns back to the "tests" block.
+Finally when all tests are completed, it executes "return 0;" to end the program.
+There are 3 jumps between "tests" block and "check" block which is difficult to keep track of unless you have written it.
+
+Making the code clean using structured programming:
+The repeated code of "check" block was converted to a function which accepted Gate pointer as parameter and did the rest.
+Now, we didn't even require a variable for keeping count of the number of tests completed.
+This is much clearer and you don't just have to add check function to add checks instead of an entire statement of if inside the "tests" block (in spaghetti code)
