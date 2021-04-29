@@ -1,6 +1,6 @@
 /**
  * Author: Devansh Jain (190100044)
- * Lab 3 - 2 Input Logic Gates (using Abstract Classes and Virtual Functions)
+ * Lab 7 - Spaghetti Code
  */
 
 #include <iostream>
