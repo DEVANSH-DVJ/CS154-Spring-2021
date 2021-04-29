@@ -1,3 +1,5 @@
+Lab 7 Submission - Devansh Jain, 190100044
+
 Spaghetti code is present in 2pinGate_spaghetti.cpp.
 Structured code is present in 2pinGate_structured.cpp.
 
