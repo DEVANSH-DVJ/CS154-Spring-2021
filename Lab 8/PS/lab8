@@ -1,0 +1,17 @@
+Lab 8 Assertions as preconditions, postconditions in member functions and constructors
+
+Today you will learn to use assertions to trap errors while developing cod
+
+Given bad code, you have to:
+  either work with faulty code given for a function, or
+  if the function is empty, write your own faulty logic in it and then....
+    (1) write main which will expose errors (badness in code) ==> segmentation fault, core dump.
+    (2) design assertions which will catch all errors in the program ==> error in main disappears, and assertion fails instead!
+
+Submit observations along with modified code with assertions
+
+
+There is one optional problem uploaded.
+Also, if you have time left after doing these programs, you can take one of your own programs in c++ and add relevant asserts in a couple of member functions.
+
+Experiment with assert and have fun!
