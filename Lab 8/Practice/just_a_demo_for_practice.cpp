@@ -4,19 +4,18 @@
 #include <cassert>
 using namespace std;
 
-int main () {
+int main() {
 
- int n;
- cin >> n;
+  int n;
+  cin >> n;
 
- int a[n];
+  int a[n];
 
- for (int i=0;i<=n; i++) {
+  for (int i = 0; i <= n; i++) {
 
-	assert(i<n);
-	assert(i>-1);
+    assert(i < n);
+    assert(i > -1);
 
-	a[i] =i;
- }
-
+    a[i] = i;
+  }
 }

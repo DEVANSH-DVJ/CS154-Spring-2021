@@ -1,20 +1,19 @@
+#include <cassert>
 #include <iostream>
 #include <string>
-#include <cassert>
 using namespace std;
 
-int find(string str, string sub) {  
+int find(string str, string sub) {
 
-// add precondition assertions
+  // add precondition assertions
 
-// add logic
+  // add logic
 
-// add postcondition assertions
+  // add postcondition assertions
 }
 
-int main () {
+int main() {
 
-// add testing code here which fails the above function and that failure
-//gets caught by the assertions that you have
-
+  // add testing code here which fails the above function and that failure
+  // gets caught by the assertions that you have
 }
