@@ -1,0 +1,26 @@
+Lab 8 Submission - Devansh Jain, 190100044
+
+The code is bugged and various assert statements have been placed to to help in debugging the code.
+The main contains test cases which will cause asserts to abort execution.
+Reasoning for all assert statements are present on the same line in the form of comments.
+
+collection.cpp:
+  Contains a class Collection for stack of integers.
+  Bugs:
+    In constructor before line 23, we should add a check if sz is non-negative or not.
+    In constructor before line 25, we should assign cap the value of sz.
+    In push_back before line 33, we should check whether cardinality is strictly smaller than capacity, else no push should happen.
+    In pop_back before 44, we should check whether cardinality is positive, else no pop should happen.
+
+str2int.cpp:
+  Contains a function to convert string to integer.
+  Bugs:
+    Before line 15, we should check whether length of string fits the max size of integer of in decimal system, else the conversion is invalid.
+    Before line 19, we should check whether the character is a digit, else the conversion is invalid.
+    We haven't take into account negative integers. (clear from failure of conversion of "-4")
+
+substring.cpp:
+  Contains a function to convert string to integer.
+  Bugs:
+    Before line 15, we should check whether length of substring is non-zero or not, else the search is invalid.
+    Before line 15, we should check whether the string is not shorter than substring, else the search should trivially return (-1).
