@@ -37,11 +37,7 @@ int main() {
 
   string str = "Computer Science and Engineering";
 
-  cout << find(str, "Engineering") << endl;
-  cout << find(str, "Science") << endl;
-  cout << find(str, "Computer") << endl;
   cout << find(str, "B. Tech., Indian Institute of Technology, Bombay") << endl;
-  cout << find(str, "Electrical Engineering") << endl;
   cout << find(str, "") << endl;
 
   return 0;
