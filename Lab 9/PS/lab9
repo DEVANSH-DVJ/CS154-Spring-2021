@@ -1,0 +1,29 @@
+Lab 9 Expressions
+
+complex.cpp
+  add a couple of your own operators to the complex class, and modify main to test them
+
+collection.cpp
+  1) add a bulk insertion operation to class collecton which will merge another collection into it
+  2) add >> operator to class collection to fetch elements from it (last in first out)
+
+For the rest of the programs,
+  observe their behavior one by one,
+  make some changes to them,
+  compute the output before you run the programs,
+  and verify if you get it right.
+  Write about your changes and reasons for what you observe.
+
+Takeaways:
+  different kinds of expressions,
+  operators,
+  user defined operators,
+  cascading/nesting of expressions/operators,
+  associativity,
+  precedence,
+  parameter evaluation order.
+
+
+what to submit:
+  Your changed programs and observations.txt. Don't submit the given programs.
+  Submit it as one single zipped file
