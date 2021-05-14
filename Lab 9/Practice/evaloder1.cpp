@@ -9,6 +9,17 @@ int f(int i) {
 }
 
 int main() {
-  cout << f(p) << f(p) << f(p) << f(++p) << endl;
+
+  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(++p) << endl;
+
+  p = 1;
+  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(p++) << endl;
+
+  p = 1;
+  cout << f(++p) << " " << f(p) << " " << f(p) << " " << f(p) << endl;
+
+  p = 1;
+  cout << f(p++) << " " << f(p) << " " << f(p) << " " << f(p) << endl;
+
   return 0;
 }
