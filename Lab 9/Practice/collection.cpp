@@ -6,15 +6,32 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * @class Collection
+ * @brief stack like collection of integers
+ */
 class Collection {
   int *array, card, maxsize; // storage, cardinality, maximum cardinality
+
 public:
+  /**
+   * @fn Collection
+   * @param[in] sz maximum size of stack
+   * @brief constructor of Collection
+   *        initializes the array
+   */
   Collection(int sz) {
     array = new int[sz];
     card = 0;
     maxsize = sz;
   }
 
+  /**
+   * @fn operator<<
+   * @param[in] elem element to be added
+   * @return updated pointer to the object
+   * @brief add element on top of stack is not full
+   */
   Collection &operator<<(int elem) {
     if (card < maxsize)
       array[card++] = elem;
@@ -23,6 +40,12 @@ public:
     return *this;
   }
 
+  /**
+   * @fn operator<<
+   * @param[in] c collection to be added
+   * @return updated pointer to the object
+   * @brief add elements of c on top of stack is not full
+   */
   Collection &operator<<(Collection c) {
     for (int i = 0; i < c.card; i++) {
       if (card == maxsize) {
@@ -34,6 +57,12 @@ public:
     return *this;
   }
 
+  /**
+   * @fn operator>>
+   * @param[out] a element popped out
+   * @return updated pointer to the object
+   * @brief pop element on top of stack is not empty
+   */
   Collection &operator>>(int &a) {
     if (card > 0)
       a = array[--card];
@@ -42,6 +71,10 @@ public:
     return *this;
   }
 
+  /**
+   * @fn prn
+   * @brief print the collection
+   */
   void prn() {
     if (card == 0) {
       cout << "Collection is empty" << endl;
@@ -71,8 +104,7 @@ int main() {
   int a, b;
   c2 >> a >> b;
   c2.prn(); // Collection has 1 elements: 1
-  cout << "Popped out: " << a << " and " << b
-       << endl; // Popped out: 3 and 2
+  cout << "Popped out: " << a << " and " << b << endl; // Popped out: 3 and 2
 
   Collection c3(10);
   c3.prn(); // Collection is empty

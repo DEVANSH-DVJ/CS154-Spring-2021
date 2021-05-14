@@ -6,17 +6,39 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * @class Complex
+ * @brief representation of complex numbers
+ */
 class Complex {
-  float i, j;
+  float i, j; // coefficient of real and imaginary part
 
 public:
+  /**
+   * @fn Complex
+   * @brief constructor of Complex
+   *        initializes to (0 + i0)
+   */
   Complex() : Complex(0, 0) {}
 
+  /**
+   * @fn Complex
+   * @param[in] x coefficient of real part
+   * @param[in] y coefficient of complex part
+   * @brief constructor of Complex
+   *        initializes to (x + iy)
+   */
   Complex(float x, float y) {
     i = x;
     j = y;
   }
 
+  /**
+   * @fn operator+
+   * @param[in] c second operand
+   * @return new complex number after operation
+   * @brief adds two complex numbers
+   */
   Complex operator+(Complex c) {
     cout << "(" << i << " + i" << j << ")"
          << " + "
@@ -26,6 +48,12 @@ public:
     return Complex(i + c.i, j + c.j);
   }
 
+  /**
+   * @fn operator-
+   * @param[in] c second operand
+   * @return new complex number after operation
+   * @brief subtracts two complex numbers
+   */
   Complex operator-(Complex c) {
     cout << "(" << i << " + i" << j << ")"
          << " - "
@@ -35,6 +63,12 @@ public:
     return Complex(i - c.i, j - c.j);
   }
 
+  /**
+   * @fn operator*
+   * @param[in] c second operand
+   * @return new complex number after operation
+   * @brief multiplies two complex numbers
+   */
   Complex operator*(Complex c) {
     cout << "(" << i << " + i" << j << ")"
          << " * "
@@ -45,6 +79,12 @@ public:
     return Complex(i * c.i - j * c.j, i * c.j + j * c.i);
   }
 
+  /**
+   * @fn operator/
+   * @param[in] c second operand
+   * @return new complex number after operation
+   * @brief divides two complex numbers
+   */
   Complex operator/(Complex c) {
     // Check division by zero
     if (c.i == 0 && c.j == 0) {
@@ -62,7 +102,13 @@ public:
     return Complex((i * c.i + j * c.j) / mod, (j * c.i - i * c.j) / mod);
   }
 
-  void prn() { cout << "(" << i << " + i" << j << ")" << endl; }
+  /**
+   * @fn prn
+   * @brief print the complex number
+   */
+  void prn() {
+    cout << "(" << i << " + i" << j << ")" << endl;
+  }
 };
 
 int main() {
