@@ -7,5 +7,8 @@ int main() {
 
   bool a = true, b = true;
 
-  cout << a || b << endl;
+  // cout << a || b << endl; // Compile Time Error
+  cout << (a || b) << endl; // Works fine
+
+  return 0;
 }
