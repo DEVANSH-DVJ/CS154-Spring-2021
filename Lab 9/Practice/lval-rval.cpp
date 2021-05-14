@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -11,4 +10,6 @@ int main() {
   // x++ = x++;  // but this is not... why?!
 
   cout << x << endl; // explain the output
+
+  return 0;
 }
