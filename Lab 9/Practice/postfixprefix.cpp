@@ -6,13 +6,12 @@
 using namespace std;
 
 class A {
-
   int v;
 
 public:
   A(int x) { v = x; }
-  void operator++() { cout << "prefix operator called \n"; }
-  void operator++(int) { cout << "postfix operator called \n"; }
+  void operator++() { cout << "Prefix operator called \n"; }
+  void operator++(int) { cout << "Postfix operator called \n"; }
 };
 
 int main() {
@@ -20,4 +19,6 @@ int main() {
   A a(10);
   ++a;
   a++;
+
+  return 0;
 }
