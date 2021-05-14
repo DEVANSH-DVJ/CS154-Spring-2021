@@ -15,16 +15,16 @@ int f(int i) {
 
 int main() {
 
-  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(++p) << endl;
+  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(++p) << endl; // 2 4 8 18
 
   p = 1;
-  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(p++) << endl;
+  cout << f(p) << " " << f(p) << " " << f(p) << " " << f(p++) << endl; // 2 4 8 17
 
   p = 1;
-  cout << f(++p) << " " << f(p) << " " << f(p) << " " << f(p) << endl;
+  cout << f(++p) << " " << f(p) << " " << f(p) << " " << f(p) << endl; // 4 8 16 32
 
   p = 1;
-  cout << f(p++) << " " << f(p) << " " << f(p) << " " << f(p) << endl;
+  cout << f(p++) << " " << f(p) << " " << f(p) << " " << f(p) << endl; // 3 6 12 24
 
   return 0;
 }

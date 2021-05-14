@@ -6,10 +6,6 @@
 #include <iostream>
 using namespace std;
 
-// observe definition of our own operator for use with objects,
-// which means for use with values which are not primitive data types
-// note the associativity from right to left
-
 class Complex {
   float i, j;
 
@@ -75,23 +71,25 @@ int main() {
 
   c3 = c1 - c2;
   cout << "c3: ";
-  c3.prn();
+  c3.prn(); // (-10 + i-10)
 
   c3 = c1 * c2;
   cout << "c3: ";
-  c3.prn();
+  c3.prn(); // (0 + i400)
 
   c3 = c1 / c2;
   cout << "c3: ";
-  c3.prn();
+  c3.prn(); // (0.5 + i0)
 
-  c3 = c1 / Complex(0, 0);
+  c3 = c1 / Complex(0, 0); // Can't divide by 0
 
   c3 = c1 + c2;
   cout << "c3: ";
-  c3.prn();
+  c3.prn(); // (30 + i30)
 
   c3 = c3 + c1 + c2 + c2;
   cout << "c3: ";
-  c3.prn();
+  c3.prn(); // (80 + i80)
+
+  return 0;
 }

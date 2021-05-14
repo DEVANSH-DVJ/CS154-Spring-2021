@@ -18,8 +18,8 @@ public:
 int main() {
 
   A a(10);
-  ++a;
-  a++;
+  ++a; // Prefix operator called
+  a++; // Postfix operator called
 
   return 0;
 }

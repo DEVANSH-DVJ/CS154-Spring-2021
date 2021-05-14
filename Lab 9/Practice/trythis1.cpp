@@ -12,17 +12,17 @@ int main() {
 
   int i = 10;
 
-  f(i++, ++i);
-  cout << i << endl;
+  f(i++, ++i); // 11 12
+  cout << i << endl; // 12
 
-  f(++i, i++);
-  cout << i << endl;
+  f(++i, i++); // 14 12
+  cout << i << endl; // 14
 
-  f(i, i++);
-  cout << i << endl;
+  f(i, i++); // 15 14
+  cout << i << endl; // 15
 
-  f(i, ++i);
-  cout << i << endl;
+  f(i, ++i); // 16 16
+  cout << i << endl; // 16
 
   return 0;
 }
