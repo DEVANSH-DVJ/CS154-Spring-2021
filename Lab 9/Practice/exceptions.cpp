@@ -10,17 +10,16 @@ public:
   void msg() {
     switch (e) {
     case 0:
-      cout << "array underflow access\n";
+      cout << "Array underflow access\n";
       break;
     case 1:
-      cout << "array overflow access\n";
+      cout << "Array overflow access\n";
       break;
     }
   }
 };
 
 class Collection {
-
   int array[10];
 
 public:
@@ -40,7 +39,7 @@ public:
   }
 };
 
-main() {
+int main() {
 
   Collection c;
 
@@ -53,5 +52,8 @@ main() {
       e.msg();
     }
   }
+
   c.prn();
+
+  return 0;
 }
