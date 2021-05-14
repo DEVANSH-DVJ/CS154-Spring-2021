@@ -1,0 +1,44 @@
+Lab 9 Submission - Devansh Jain, 190100044
+
+collection.cpp
+Class Collection represents stack like collection of integers
+
+complex.cpp
+Class Complex representation of complex numbers with (+), (-), (*), (/) operations available.
+
+evaloder1.cpp
+In our case, execution occurs from left to right, and evaluation also occurs from left to right
+It varies with compiler and OS, sometimes evaluation occurs from right to left.
+Referred to https://stackoverflow.com/a/7718531
+
+exceptions.cpp
+Class Collection has a member function [] (Operator Overloading)
+This operator takes an index as input and returns value at that index in the Collection,
+  if index is in bound else throws error which is caught in main using the help of throw and try-catch
+
+lval-rval.cpp
+In our case, first the left side of assignment operator is evaluated then right side of assignment operator then the assignment happens.
+It varies with compiler and OS, sometimes evaluation of right side happens before left side.
+Referred to https://stackoverflow.com/a/33599142
+Referred to https://stackoverflow.com/a/19585257
+
+postfixprefix.cpp
+operator++() overloads the prefix increment operator while operator++(int) overloads the postfix increment operator.
+Referred to https://stackoverflow.com/a/36817009
+
+right-to-left.cpp
+Assignment operator evaluates right then assigns to left.
+Referred to https://stackoverflow.com/a/19585257
+
+trythis1.cpp
+The order of evaluation of arguments is unspecified and is compiler dependent.
+Referred to https://stackoverflow.com/a/2934909
+
+trythis2.cpp
+The order of evaluation of arguments is unspecified and is compiler dependent.
+Referred to https://stackoverflow.com/a/2934909
+
+why-it-fails.cpp
+Line 13 fails as "<<" has higher precedence to "||" in C++.
+"cout << a" is evaluated to return cout but "b << endl" causes compile time error as b being a boolean variable doesn't have operator<< overloaded.
+Line 14 doesn't fail as parentheses have higher precedence than "<<" and so the logical operation happens before cout.
