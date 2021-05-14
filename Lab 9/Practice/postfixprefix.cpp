@@ -1,6 +1,7 @@
-// Program by Prof. R. K. Joshi
-// for CS 152
-// unary operator overloading: the ++ operator
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 9 - Prefix and Postfix Operators
+ */
 
 #include <iostream>
 using namespace std;

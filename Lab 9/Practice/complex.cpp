@@ -1,5 +1,7 @@
-// program by Prof. R.K.Joshi
-// for CS152, IIT Bombay
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 9 - Complex - cascading/nesting of operators
+ */
 
 #include <iostream>
 using namespace std;

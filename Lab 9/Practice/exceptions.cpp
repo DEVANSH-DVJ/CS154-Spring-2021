@@ -1,3 +1,8 @@
+/**
+ * Author: Devansh Jain (190100044)
+ * Lab 9 - Exceptions
+ */
+
 #include <iostream>
 using namespace std;
 
