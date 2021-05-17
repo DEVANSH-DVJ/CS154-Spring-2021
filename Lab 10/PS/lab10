@@ -1,0 +1,19 @@
+Lab 10 Functions
+
+We will do functions and higher order functions.
+
+Write a program that prints unique words appearing in a text file with their frequency of occurrence
+    using features discussed + file demo in python
+      -- sets, membership "in", loops with element accesses, etc.
+      -- try to avoid use of variables as much as possible
+
+For example,
+  if the text file contains
+    hello
+    hello how are you
+
+  the program prints
+    hello 2
+    how 1
+    are 1
+    you 1
