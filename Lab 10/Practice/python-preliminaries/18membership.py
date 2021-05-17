@@ -6,6 +6,6 @@ for e in l:
         print(e)
 
 
-s = "hello world"
+s = 'hello world'
 for c in s:
     print(c)

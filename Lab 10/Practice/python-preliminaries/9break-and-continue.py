@@ -5,13 +5,13 @@ for e in r:
         break
     print(e)
 else:
-    print("for1 done")
+    print('for1 done')
 
-print("==============")
+print('==============')
 
 for e in r:
     if e == 3:
         continue
     print(e)
 else:
-    print("for2 done")
+    print('for2 done')
