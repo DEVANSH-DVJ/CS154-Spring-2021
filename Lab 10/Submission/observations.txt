@@ -1,0 +1,44 @@
+Lab 10 Submission - Devansh Jain, 190100044
+
+Code is present in freq.py
+Run: python freq.py input.txt
+
+As we haven't officially discussed dictionaries in class, I used two methods:
+  - Using sets and lambda function but this is not efficient by complexity
+  - Using dictionaries and lambda function and is more efficient
+
+sys.argv[1]
+  requires sys module
+  gives us the first command line argument (after the python script)
+
+open(<file_name>, 'r').read().split()
+  opens the files
+  reads through the file and returns a string
+  splits the string over " ", "\n", "\t" and returns a list
+
+set(<list>)
+  converts the list into a set
+  duplicate elements are removed
+
+<list>.count(<element>)
+  gives the frequency of the element in the list
+
+<dict>.get(<key>, 0)
+  if key is one of the keys in dict then
+    returns dict[key]
+  else
+    returns 0
+
+Function count
+  input arr array of elements
+  input dic current dictionary
+  return dic updated dictionary
+  brief creates a dictionary of frequency of elements
+
+Function print1 (defined using lambda)
+  input arr array of elements
+  brief prints element and its frequency for all elements in the array
+
+Function print2 (defined using lambda)
+  input dictionary of frequency of elements
+  brief prints key (element) and value (frequency of the element) for every key-value pair
