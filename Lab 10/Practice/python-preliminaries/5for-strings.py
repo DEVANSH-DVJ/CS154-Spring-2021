@@ -1,5 +1,4 @@
 s = "hello"
-for c in s: 
-	print (c, end = " ")
-print ("\n")
-
+for c in s:
+    print(c, end=" ")
+print("\n")

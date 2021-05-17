@@ -1,6 +1,6 @@
-l = [1,2]
-l2 = l.copy()   # copy operator 
-l.clear()   #clear operator
+l = [1, 2]
+l2 = l.copy()   # copy operator
+l.clear()  # clear operator
 
 
-print (l,l2)
+print(l, l2)

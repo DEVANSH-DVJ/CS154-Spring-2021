@@ -1,6 +1,4 @@
-f = open("data","r")
+f = open("data", "r")
 
 for e in f:
-	print e
-
-
+    print e

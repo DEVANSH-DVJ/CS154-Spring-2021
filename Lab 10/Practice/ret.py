@@ -1,22 +1,22 @@
 
-f = lambda x: x+x  # function abstraction-- creates a function, we are 
-#assignig that to variable f
+f = lambda x: x + x  # function abstraction-- creates a function, we are
+# assignig that to variable f
 
 
-print (f(10))
+print(f(10))
 
 
-#anonymous function
-#takes any no of arguments, but only one expression
+# anonymous function
+# takes any no of arguments, but only one expression
 
 
-g = lambda x: x*x if (x>10) else x+x
+g = lambda x: x * x if (x > 10) else x + x
 
-print (g(20))
+print(g(20))
 
 
-#nested if else
+# nested if else
 
-h = lambda x: x*x if (x>10) else (10 if x==9 else 0)
+h = lambda x: x * x if (x > 10) else (10 if x == 9 else 0)
 
-print (h(9))
+print(h(9))

@@ -1,10 +1,10 @@
-l = [1,3,4]
+l = [1, 3, 4]
 l2 = l
 
-print (l)
+print(l)
 del (l)
 
-print (l2)
+print(l2)
 #print (l)
 
 
