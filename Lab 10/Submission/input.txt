@@ -1,2 +1,4 @@
 hello
 hello how are you
+hello how are you doing
+hi
