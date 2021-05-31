@@ -1,5 +1,6 @@
 import sys
 import time
+import multiprocessing
 
 
 def fibo_slow(x):
@@ -33,6 +34,20 @@ def fibo_fast(x, table):
     return f1 + f2
 
 
+def test_slow(x):
+    tic = time.perf_counter()
+    print('Slow recursive function\nfib({}) = {}'.format(x, fibo_slow(x)))
+    toc = time.perf_counter()
+    print('Computed in {:0.4f} milliseconds\n'.format((toc - tic) * 1000))
+
+
+def test_fast(x):
+    tic = time.perf_counter()
+    print('Fast recursion function using dynamic programming\nfib({}) = {}'.format(x, fibo_fast(x, {0: 0, 1: 1})))
+    toc = time.perf_counter()
+    print('Computed in {:0.4f} milliseconds\n'.format((toc - tic) * 1000))
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         print('Usage: python 1e.py <x>')
@@ -51,14 +66,19 @@ if __name__ == '__main__':
         print('x has to be non-negative integers')
         exit(1)
 
-    print('Slow recursive function')
-    tic = time.perf_counter()
-    print('fib({}) = {}'.format(x, fibo_slow(x)))
-    toc = time.perf_counter()
-    print('Computed in {:0.4f} milliseconds\n'.format((toc - tic) * 1000))
+    slow = multiprocessing.Process(target=test_slow, args=(x,))
+    fast = multiprocessing.Process(target=test_fast, args=(x,))
 
-    print('Fast recursion function using dynamic programming')
-    tic = time.perf_counter()
-    print('fib({}) = {}'.format(x, fibo_fast(x, {0: 0, 1: 1})))
-    toc = time.perf_counter()
-    print('Computed in {:0.4f} milliseconds'.format((toc - tic) * 1000))
+    slow.start()
+    fast.start()
+
+    slow.join(10)
+
+    if slow.is_alive():
+        print('Slow still running. Time limit 10 sec exceed')
+
+        slow.terminate()
+        # OR Kill - will work for sure, no chance for process to finish nicely however
+        # slow.kill()
+
+        slow.join()
