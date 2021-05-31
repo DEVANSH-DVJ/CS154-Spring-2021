@@ -64,3 +64,4 @@ if __name__ == '__main__':
 
     print('ack({}, {}) = {}'.format(m, n, ack(m, n, {})))
     print('Number of function calls = {}'.format(count))
+    print('Number of table look ups = {}'.format(lookups))
