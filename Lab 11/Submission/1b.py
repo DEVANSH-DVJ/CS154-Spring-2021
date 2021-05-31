@@ -6,10 +6,17 @@ Lab 11 1B - Counting Ackerman Function calls
 import sys
 
 
+# Global counter for calls
+count = 0
+
+
 def ack(m, n):
     '''
     Recursively compute Ackerman number for inputs m, n
     '''
+    global count
+    count = count + 1
+
     if m == 0:
         return n + 1
 
