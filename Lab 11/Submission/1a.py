@@ -1,7 +1,15 @@
+'''
+Author: Devansh Jain (190100044)
+Lab 11 1A - Defining Ackerman Function
+'''
+
 import sys
 
 
 def ack(m, n):
+    '''
+    Recursively compute Ackerman number for inputs m, n
+    '''
     if m == 0:
         return n + 1
 
