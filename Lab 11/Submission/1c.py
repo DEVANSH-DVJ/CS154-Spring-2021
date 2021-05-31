@@ -7,7 +7,7 @@ import sys
 
 
 # Global counter for calls
-count = 0
+count = {}
 
 
 def ack(m, n):
@@ -15,7 +15,7 @@ def ack(m, n):
     Recursively compute Ackerman number for inputs m, n
     '''
     global count
-    count = count + 1
+    count[(m, n)] = count.get((m, n), 0) + 1
 
     if m == 0:
         return n + 1
