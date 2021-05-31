@@ -1,0 +1,41 @@
+Lab 10 Recursion and its implementation
+
+Today we are experimenting with recursion and a technique called memoization which stores results of previously executed functions in a table, so that when the function gets called again in recursion with same exact arguments, instead of making the recursive call, a table lookup can give us the result directly.
+
+============================================
+
+Ackerman Function for non-negative integers
+
+ack(m,n) is defined as follows
+n >= 0  : ack(0,n) --> n + 1
+m > 0   : ack(m,0) --> ack(m-1, 1)
+m,n > 0 : ack(m,n) --> ack(m-1, ack(m,n-1))
+
+It's a quickly expanding function
+1) Write the function in python and check your output
+
+2) count total no. of calls made to ackerman
+  try it with value pairs such as (0,0), (1,0), (0,1), (2,3), (3,4), (4,5), and print the return value and total no. of calls
+
+3) count total no. of calls for each recursive instance of ackerman (k1, k2) where k1 and k2 are specific combinations
+  for example,
+    when a call to ack(1,1) is made, it expands to:
+      ack(1,1) --> ack(0, ack(1,0)) --> ack(0, ack(0,1)) --> ack(0,2) --> 3
+    which gives the following table:
+      ack(0,2) : called once
+      ack(0,1) : called once
+      ack(1,0) : called once
+      ack(1,1) : called once
+
+4) Try to reduce these calls by saving the results once computed in a table, and instead of making a call, return the result from the table.
+  Now print the no. of calls and no. of table lookups.
+  This should considerably reduce the no. of calls.
+  See the effect of this implementation on the ability to accept larger numbers as arguments.
+
+5) Implement the table lookup technique in 4 above for a recursive fibonacci implementation, and see if it improves the computer's ability to compute in some sense.
+
+Submit your observations and these four programs as 1a.py, 1b.py, 1c.py, 1d.py and 1e.py
+
+The next problem will be introduced after 1.5 hours.
+
+https://en.wikipedia.org/wiki/Memoization
