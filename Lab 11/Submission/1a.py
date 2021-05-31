@@ -38,4 +38,4 @@ if __name__ == '__main__':
         print('Both m and n have to be non-negative integers')
         exit(1)
 
-    print(ack(m, n))
+    print('ack({}, {}) = {}'.format(m, n, ack(m, n)))
