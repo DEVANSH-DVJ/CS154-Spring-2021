@@ -2,7 +2,7 @@ Lab 10 Recursion and its implementation
 
 Today we are experimenting with recursion and a technique called memoization which stores results of previously executed functions in a table, so that when the function gets called again in recursion with same exact arguments, instead of making the recursive call, a table lookup can give us the result directly.
 
-============================================
+================ Part 1 ======================
 
 Ackerman Function for non-negative integers
 
@@ -12,6 +12,7 @@ m > 0   : ack(m,0) --> ack(m-1, 1)
 m,n > 0 : ack(m,n) --> ack(m-1, ack(m,n-1))
 
 It's a quickly expanding function
+
 1) Write the function in python and check your output
 
 2) count total no. of calls made to ackerman
@@ -34,8 +35,24 @@ It's a quickly expanding function
 
 5) Implement the table lookup technique in 4 above for a recursive fibonacci implementation, and see if it improves the computer's ability to compute in some sense.
 
-Submit your observations and these four programs as 1a.py, 1b.py, 1c.py, 1d.py and 1e.py
-
-The next problem will be introduced after 1.5 hours.
+Submit your observations and these five programs as 1a.py, 1b.py, 1c.py, 1d.py and 1e.py
 
 https://en.wikipedia.org/wiki/Memoization
+
+
+================ Part 2 ======================
+
+Write recursive functions:
+
+1) function cross(l1,l2): produces cross product of 2 lists
+
+2) function reverse(l): to reverse list given in input
+
+3) function sub(l1,l2): to find if l1 is a sublist inside l2
+
+4) function perm(l1): produces all permutations of elements in list 1
+
+In each case, the output is a list don't print anything inside the function.
+You can make a call to an example value and then print the result.
+
+Submit your observations and these four programs as cross.py, reverse.py, sub.py and perms.py
