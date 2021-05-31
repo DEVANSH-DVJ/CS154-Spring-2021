@@ -1,4 +1,5 @@
 import sys
+import time
 
 
 def fibo_slow(x):
@@ -51,7 +52,13 @@ if __name__ == '__main__':
         exit(1)
 
     print('Slow recursive function')
+    tic = time.perf_counter()
     print('fib({}) = {}'.format(x, fibo_slow(x)))
+    toc = time.perf_counter()
+    print('Computed in {:0.4f} milliseconds\n'.format((toc - tic) * 1000))
 
     print('Fast recursion function using dynamic programming')
+    tic = time.perf_counter()
     print('fib({}) = {}'.format(x, fibo_fast(x, {0: 0, 1: 1})))
+    toc = time.perf_counter()
+    print('Computed in {:0.4f} milliseconds'.format((toc - tic) * 1000))
