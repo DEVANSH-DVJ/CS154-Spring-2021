@@ -1,3 +1,8 @@
+'''
+Author: Devansh Jain (190100044)
+Lab 11 1E - Comparing Fibonacci with and without Dynamic Programming
+'''
+
 import sys
 import time
 import multiprocessing
