@@ -1,3 +1,6 @@
+import sys
+
+
 def fibo_slow(x):
     if x == 0:
         return 0
@@ -21,3 +24,28 @@ def fibo_fast(x, table):
 
     table[x] = f1 + f2
     return f1 + f2
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('Usage: python 1e.py <x>')
+        print('x has to be non-negative integers')
+        exit(1)
+
+    try:
+        x = int(sys.argv[1])
+    except Exception:
+        print('Usage: python 1e.py <x>')
+        print('x has to be non-negative integers')
+        exit(1)
+
+    if x < 0:
+        print('Usage: python 1e.py <x>')
+        print('x has to be non-negative integers')
+        exit(1)
+
+    print('Slow recursive function')
+    print('fib({}) = {}', x, fibo_slow(x))
+
+    print('Fast recursion function using dynamic programming')
+    print('fib({}) = {}', x, fibo_fast(x, {0: 0, 1: 1}))
