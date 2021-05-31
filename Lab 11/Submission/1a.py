@@ -12,6 +12,11 @@ def ack(m, n):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 3:
+        print('Usage: python 1a.py <m> <n>')
+        print('Both m and n have to be non-negative integers')
+        exit(1)
+
     m = int(sys.argv[1])
     n = int(sys.argv[2])
 
