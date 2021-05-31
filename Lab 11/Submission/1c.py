@@ -46,4 +46,5 @@ if __name__ == '__main__':
         exit(1)
 
     print('ack({}, {}) = {}'.format(m, n, ack(m, n)))
-    print('Number of function calls = {}'.format(count))
+    for key in sorted(count.keys()):
+        print('ack{} called {} times'.format(key, count[key]))
