@@ -12,6 +12,12 @@ def fibo_slow(x):
 
 
 def fibo_fast(x, table):
+    if x == 0:
+        return 0
+
+    if x == 1:
+        return 1
+
     if x - 1 in table:
         f1 = table[x - 1]
     else:
@@ -45,7 +51,7 @@ if __name__ == '__main__':
         exit(1)
 
     print('Slow recursive function')
-    print('fib({}) = {}', x, fibo_slow(x))
+    print('fib({}) = {}'.format(x, fibo_slow(x)))
 
     print('Fast recursion function using dynamic programming')
-    print('fib({}) = {}', x, fibo_fast(x, {0: 0, 1: 1}))
+    print('fib({}) = {}'.format(x, fibo_fast(x, {0: 0, 1: 1})))
