@@ -7,3 +7,10 @@ def cross(arr1, arr2):
     arr += cross(arr1[1:], arr2)
 
     return arr
+
+
+if __name__ == '__main__':
+    l1 = [1, 2, 4, 9]
+    l2 = [141, '141', 42, True]
+
+    print(cross(l1, l2))
