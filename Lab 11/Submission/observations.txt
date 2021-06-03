@@ -1,0 +1,41 @@
+================ Part 1 ======================
+1a.py, 1b.py, 1c.py contain recursive implementation of computing Ackerman's numbers.
+
+It can only work for small numbers (due to limit of recursion depth),
+for m = 0, no limit on n
+for m = 1, n < 997
+for m = 2, n < 498
+for m = 3, n < 7
+for m = 4, only n = 0
+doesn't work for m > 4
+
+This is because of the fact that we don't return until the recursive call has returned which builds a recursion depth too large for it to handle (I think the limit is 999 or 1000)
+
+1a.py just returns the Ackerman number for parameters m, n.
+1b.py also prints the total number of function calls.
+1c.py also prints the number of function calls with each pair of parameters.
+
+For m = 4, n = 0,
+we can see that some of the pairs are called 8 times, i.e. the value is computed again and again.
+
+This has been reduced in 1d.py by using table to store the values once computed.
+We can see that for m = 4, n = 0, where the functions calls were 107, they have been reduced to 33 with 6 table lookups.
+
+Now,
+for m = 3, we can compute the value for n = 7, 8 also,
+for m = 2, we can compute the value for n < 995.
+
+This is definitely an improvement.
+
+We can see the change in computation time much as we are restricted to only small numbers.
+
+We simulate the advantage of the use of table in 1e.py for computing Fibonacci numbers.
+
+I have multiprocessing and threading to run both of them parallelly and put a time limit on the basic one as it takes a lot of time.
+
+For even small numbers like 38, basic one takes more than 10 sec and recursive depth limit is hit for even 990.
+Time increase is almost exponential, so is the number of function calls.
+
+On the other hand, implementation with table finishes up computation for 990th Fibonacci number within 0.8 milliseconds (before basic one can even crash)
+
+For m = 37, basic one takes around 7 seconds while the lookup table one takes less than 0.07 milliseconds, a speed of factor of 100,000.
