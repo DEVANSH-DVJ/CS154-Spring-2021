@@ -1,6 +1,20 @@
+'''
+Author: Devansh Jain (190100044)
+Lab 11 2 - Defining Reverse Function
+'''
+
+
 def reverse(arr):
+    '''
+    Reverse arr
+    '''
+
+    # If empty, nothing to reverse
     if len(arr) == 0:
         return []
+
+    # Reverse the array excluding the fist element
+    # and then add first element to the back
     return reverse(arr[1:]) + [arr[0]]
 
 
