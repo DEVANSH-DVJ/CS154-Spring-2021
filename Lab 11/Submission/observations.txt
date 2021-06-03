@@ -1,4 +1,5 @@
 ================ Part 1 ======================
+
 1a.py, 1b.py, 1c.py contain recursive implementation of computing Ackerman's numbers.
 
 It can only work for small numbers (due to limit of recursion depth),
@@ -39,3 +40,12 @@ Time increase is almost exponential, so is the number of function calls.
 On the other hand, implementation with table finishes up computation for 990th Fibonacci number within 0.8 milliseconds (before basic one can even crash)
 
 For m = 37, basic one takes around 7 seconds while the lookup table one takes less than 0.07 milliseconds, a speed of factor of 100,000.
+
+================ Part 2 ======================
+
+cross.py   : returns Cartesian Cross product of two lists (confirmed with TA Khyati Oswal)
+reverse.py : returns reversed list
+sub.py     : Check if one list is a sublist (subarray) of another - returns boolean (confirmed with TA Khyati Oswal)
+perm.py    : returns list of all Permutations of list
+
+Confirmed with TA Khyati Oswal about ordering and she confirmed "No particular order is needed."
