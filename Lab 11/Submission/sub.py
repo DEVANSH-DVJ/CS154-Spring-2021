@@ -1,8 +1,22 @@
+'''
+Author: Devansh Jain (190100044)
+Lab 11 2 - Defining Sublist Function
+'''
+
+
 def sub(sub_arr, arr):
+    '''
+    Whether sub_arr is a sub-array of arr
+    '''
+
+    # If length of sub_arr is more, not possible
     if len(sub_arr) > len(arr):
         return False
 
+    # Start checking from first element of arr
     for n in range(len(sub_arr)):
+        # If elements (type and value) don't match
+        # then start from second element of arr
         if sub_arr[n] != arr[n] or type(sub_arr[n]) is not type(arr[n]):
             return sub(sub_arr, arr[1:])
 
