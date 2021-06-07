@@ -1,0 +1,19 @@
+Lab 12: Logic Programming Paradigm
+
+We explore ideas in LP through prolog
+
+Write predicates for the following:
+
+1. Find if a list is palindrome
+
+2. Reverse a list
+
+3. Count how many times an element appears in a list
+
+4. Is a list a substring in another?
+
+5. Append a list at the back of another
+
+6. Find minimum element in a list
+
+7. Find factorial
