@@ -1,3 +1,5 @@
+Lab 12 Submission - Devansh Jain, 190100044
+
 I have used append which is a in-built predicate for pal, rev, sub.
 
 All the predicates have same name as the file
