@@ -1,3 +1,3 @@
 pal([]).
 pal([_]).
-pal(PAL) :- append([H|T],[H],PAL), pal(T).
+pal(P) :- append([H|T],[H],P), pal(T).
