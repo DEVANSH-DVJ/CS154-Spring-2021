@@ -1,0 +1,13 @@
+1) Find if a list is palindrome:
+	 palindrome.pl
+
+palindrome([H|T]):-
+
+2) Reverse a list
+reverse(....):-
+
+3) Count how many times an element 
+appears in a list
+
+count(X,L,M)
+
