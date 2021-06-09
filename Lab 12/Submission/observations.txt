@@ -1,8 +1,13 @@
 Lab 12 Submission - Devansh Jain, 190100044
 
-I have used append which is a in-built predicate for pal, rev, sub.
+I have implemented append as app in app.pl
+However, I have directly used append, an in-built predicate,
+  for pal.pl, rev.pl, sub.pl
 
 All the predicates have same name as the file
 For making an executable: gplc <predicate>.pl
 It will create an executable <predicate>
 To run the executable: ./<predicate>
+
+The usage and description of the logic for the recursive relation
+  are present in .pl files
