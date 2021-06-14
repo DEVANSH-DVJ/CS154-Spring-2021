@@ -135,3 +135,13 @@
   Why it works:
     A simple conjunction
     To avoid repeated solutions, while resolving sportsperson predicate, we stop when we get true
+
+
+**Sibling Original: sibling_orig.pl**
+  Predicates:
+    parent(Element,Element),
+    sibling(Element,Element)
+  Brief:
+    People having a common parent are sibling
+  Error (Logical Error):
+    A person isn't sibling of himself/herself
