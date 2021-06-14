@@ -4,4 +4,4 @@ connected(bangalore,chennai).
 connected(chennai,kolkata).
 connected(kolkata,patna).
 
-connected(A,B) :- connected(B,A), !.
+isconnected(A,B) :- connected(A,B); connected(B,A).
