@@ -7,3 +7,21 @@
     An element is wise if it is human and has common sense
   Why it works:
     A simple conjunction
+
+
+**Family Relations: grand.pl**
+  Predicates:
+    child(Element,Element),
+    wife(Element,Element),
+    grandchild(Element,Element),
+    grandparent(Element,Element),
+    grandmother(Element,Element),
+    granddaughter(Element,Element)
+  Brief:
+    Trying to mimic family relations
+  Error (Logical):
+    A is grandchild of B and C is wife of B then A is grandchild of C as well
+    We have missed such relations while defining rules
+    The granddaughter predicate actually mimics granddaughter-in-law relation
+    A lot of changes were required, so I didn't fix it
+    Apart from that, due to use of simple conjunction and no infinite looping, we don't get any runtime errors
