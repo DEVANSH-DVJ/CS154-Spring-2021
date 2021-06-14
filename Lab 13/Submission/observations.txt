@@ -1,0 +1,9 @@
+**Example 1: ex1.pl**
+  Predicates:
+    human(Element),
+    hascommonsense(Element),
+    wise(Element)
+  Brief:
+    An element is wise if it is human and has common sense
+  Why it works:
+    A simple conjunction
