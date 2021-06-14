@@ -145,3 +145,14 @@
     People having a common parent are sibling
   Error (Logical Error):
     A person isn't sibling of himself/herself
+
+
+**Sibling Fixed: sibling_fix.pl**
+  Predicates:
+    parent(Element,Element),
+    sibling(Element,Element)
+  Brief:
+    People having a common parent are sibling
+  Why it works:
+    A simple conjunction
+    Checking if the two elements are same person or not
