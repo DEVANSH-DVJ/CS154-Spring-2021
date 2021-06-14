@@ -25,3 +25,15 @@
     The granddaughter predicate actually mimics granddaughter-in-law relation
     A lot of changes were required, so I didn't fix it
     Apart from that, due to use of simple conjunction and no infinite looping, we don't get any runtime errors
+
+
+**List Reversal Original: reverse_orig.pl**
+  Predicates:
+    last(List,Element),
+    reverse(List,List)
+  Brief:
+    Reversing the list
+  Error (A lot of errors):
+    First of all, reverse doesn't have a stopping recursion
+    Even if we fix that, the head element is lost in the third rule
+    I found it difficult to do it using last as a helping predicate, so I switched to append like last lab
