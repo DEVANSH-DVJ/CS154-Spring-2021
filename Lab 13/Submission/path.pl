@@ -1,7 +1,7 @@
 connected(delhi,mumbai).
 connected(mumbai,bangalore).
 connected(bangalore,chennai).
-connected(chennai,kolkata).
+connected(bhubaneswar,kolkata).
 connected(kolkata,patna).
 
 path(A,B) :- connected(A,B).
