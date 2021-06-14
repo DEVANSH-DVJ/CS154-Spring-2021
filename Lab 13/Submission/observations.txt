@@ -120,3 +120,18 @@
   Error (Incorrect query response):
     If we query `gatesreward(X). a`, then we get only tikku as cut operator ends the search after finding a person who satisfies gatesreward predicate
     This happened due to improper placement of cut operator
+
+
+**Reward Fixed: reward_fix.pl**
+  Predicates:
+    btech(Element),
+    chessplayer(Element),
+    footballplayer(Element),
+    athelete(Element),
+    sportsperson(Element)
+    gatesreward(Element)
+  Brief:
+    A person is eligible for reward if he/she has done btech and is a sports person
+  Why it works:
+    A simple conjunction
+    To avoid repeated solutions, while resolving sportsperson predicate, we stop when we get true
