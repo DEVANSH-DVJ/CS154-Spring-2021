@@ -71,3 +71,13 @@
     There is directed path iff
       either first element is directly connected to the second one, or
       there is an element which is directly connected to first element and has a directed path to second element
+
+
+**Undirected Connections Original: connected_orig.pl**
+  Predicates:
+    connected(Element,Element)
+  Brief:
+    Check if there is an undirected connection between the two elements
+  Error (Infinite Loop):
+    Happens when both A,B and B,A is false
+    A,B calls B,A which calls A,B and so on
