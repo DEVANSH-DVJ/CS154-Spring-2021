@@ -81,3 +81,13 @@
   Error (Infinite Loop):
     Happens when both A,B and B,A is false
     A,B calls B,A which calls A,B and so on
+
+
+**Undirected Connections Fixed: connected_fix.pl**
+  Predicates:
+    connected(Element,Element)
+    isconnected(Element,Element)
+  Brief:
+    Check if there is an undirected connection between the two elements
+  Why it works:
+    A,B are connected only if either of A,B or B,A are connected
