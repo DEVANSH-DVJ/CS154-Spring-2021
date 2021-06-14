@@ -48,3 +48,14 @@
   Why it works:
     Empty list is reverse of itself
     Reverse of a list is reverse of tail appended with the head element
+
+
+**kth Element: kth.pl**
+  Predicates:
+    kthfind(List,Number,Element,Number),
+    kth(List,Number,Element)
+  Brief:
+    Finding the kth element in the list (0-indexed)
+  Why it works:
+    Increment the counter I till it reaches required position K
+    Then break the loop and return the head element (which is kth element in the original list)
