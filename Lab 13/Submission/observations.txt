@@ -37,3 +37,14 @@
     First of all, reverse doesn't have a stopping recursion
     Even if we fix that, the head element is lost in the third rule
     I found it difficult to do it using last as a helping predicate, so I switched to append like last lab
+
+
+**List Reversal Fixed: reverse_fix.pl**
+  Predicates:
+    app(List,List,List),
+    rev(List,List)
+  Brief:
+    Reversing the list
+  Why it works:
+    Empty list is reverse of itself
+    Reverse of a list is reverse of tail appended with the head element
