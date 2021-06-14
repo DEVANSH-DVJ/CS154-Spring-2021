@@ -1,3 +1,5 @@
+Lab 13 Submission - Devansh Jain, 190100044
+
 **Example 1: ex1.pl**
   Predicates:
     human(Element),
