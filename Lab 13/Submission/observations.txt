@@ -59,3 +59,15 @@
   Why it works:
     Increment the counter I till it reaches required position K
     Then break the loop and return the head element (which is kth element in the original list)
+
+
+**Directed Path: path.pl**
+  Predicates:
+    connected(Element,Element),
+    path(Element,Element)
+  Brief:
+    Check if there is a directed path from first element to second element
+  Why it works:
+    There is directed path iff
+      either first element is directly connected to the second one, or
+      there is an element which is directly connected to first element and has a directed path to second element
